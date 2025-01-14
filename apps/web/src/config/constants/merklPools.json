@@ -1,0 +1,62 @@
+[
+  {
+    "chainId": 1,
+    "address": "0x6db0f81Db2C3B2A85a802d511577d8522D0D8C14",
+    "link": "https://merkl.angle.money/ethereum/pool/2/0x6db0f81Db2C3B2A85a802d511577d8522D0D8C14"
+  },
+  {
+    "chainId": 1,
+    "address": "0x7B94A5622035207d3f527d236d47B7714Ee0acBa",
+    "link": "https://merkl.angle.money/ethereum/pool/2/0x7B94A5622035207d3f527d236d47B7714Ee0acBa"
+  },
+  {
+    "chainId": 56,
+    "address": "0x9d84f1d12FdC6c977BF451e70689F45107b79b77",
+    "link": "https://merkl.angle.money/bnb%20smart%20chain/pool/2/0x9d84f1d12FdC6c977BF451e70689F45107b79b77"
+  },
+  {
+    "chainId": 56,
+    "address": "0xeD000AB362Ef11E962658Fc04c1A7D667a647213",
+    "link": "https://merkl.angle.money/bnb%20smart%20chain/pool/1/0xeD000AB362Ef11E962658Fc04c1A7D667a647213"
+  },
+  {
+    "chainId": 56,
+    "address": "0xd5a79aB649E0a5F20e995026d034a0bF28B8aACa",
+    "link": "https://merkl.angle.money/bnb%20smart%20chain/pool/2/0xd5a79aB649E0a5F20e995026d034a0bF28B8aACa"
+  },
+  {
+    "chainId": 324,
+    "address": "0x3bF35ac7BF2E4aaF98e007c9C3e0d214562A3DBB",
+    "link": "https://merkl.angle.money/zksync/pool/2/0x3bF35ac7BF2E4aaF98e007c9C3e0d214562A3DBB"
+  },
+  {
+    "chainId": 324,
+    "address": "0x3AEf05a8E7D7A83f5527edeD214e0b24A87d0991",
+    "link": "https://merkl.angle.money/zksync/pool/2/0x3AEf05a8E7D7A83f5527edeD214e0b24A87d0991"
+  },
+  {
+    "chainId": 324,
+    "address": "0x5631fE6d29E3CB717517DA05A9970e499DEF5e31",
+    "link": "https://merkl.angle.money/zksync/pool/2/0x5631fE6d29E3CB717517DA05A9970e499DEF5e31"
+  },
+  {
+    "chainId": 324,
+    "address": "0x291d9F9764c72C9BA6fF47b451a9f7885Ebf9977",
+    "link": "https://merkl.angle.money/zksync/pool/2/0x291d9F9764c72C9BA6fF47b451a9f7885Ebf9977"
+  },
+  {
+    "chainId": 324,
+    "address": "0xC081eACC77c75CE1f39a43c04b53D90ADaD35fFd",
+    "link": "https://merkl.angle.money/zksync/pool/2/0xC081eACC77c75CE1f39a43c04b53D90ADaD35fFd"
+  },
+  {
+    "chainId": 324,
+    "address": "0xD05eEf3792276E92bB051029DaDFc2Bf81121692",
+    "link": "https://merkl.angle.money/zksync/pool/2/0xD05eEf3792276E92bB051029DaDFc2Bf81121692"
+  },
+  {
+    "chainId": 42161,
+    "address": "0xE4BfcC208f3447cc5D2f5CCB40C52778d4bE2004",
+    "link": "https://merkl.angle.money/arbitrum/pool/2/0xE4BfcC208f3447cc5D2f5CCB40C52778d4bE2004"
+  }
+]
