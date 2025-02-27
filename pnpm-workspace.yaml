@@ -1,0 +1,14 @@
+packages:
+  - 'packages/*'
+  - 'packages/routing-sdk/**'
+  - 'apps/*'
+  - 'apis/*'
+  - 'examples/*'
+  - 'scripts'
+
+catalog:
+  viem: ^2.22.23
+  wagmi: ^2.14.11
+  next: 14.2.14
+  wrangler: 3.81.0
+  '@aptos-labs/ts-sdk': 1.30.0

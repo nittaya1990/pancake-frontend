@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -10,14 +10,17 @@
 cypress/videos
 cypress/screenshots
 cypress/fixtures/example.json
+**/packages/**/coverage
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 .idea/
 
 # production
-/build
+build
+dist
+storybook-static
 
 # misc
 .DS_Store
@@ -30,8 +33,28 @@ cypress/fixtures/example.json
 .env.production.local
 
 # debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 debug.log*
+**/vite.config.ts.timestamp*.mjs
 
+**/apps/web/config/abi/types
+**/packages/smart-router/evm/abis/types
+**/packages/pools/src/abis/types
+
+vite.config.ts.timestamp-*.mjs
+
+# Sentry
+.sentryclirc
+
+# turbo
+.turbo
+.vercel
+
+# store for local dev scripts
+scripts/dev/**
+
+# typescript
+*.tsbuildinfo

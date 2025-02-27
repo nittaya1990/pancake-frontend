@@ -1,0 +1,89 @@
+import { FarmWithStakedValue } from '@pancakeswap/farms'
+import { useTranslation } from '@pancakeswap/localization'
+import { VaultConfig } from '@pancakeswap/position-managers'
+import { Flex, Spinner } from '@pancakeswap/uikit'
+import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import noop from 'lodash/noop'
+import React, { useMemo } from 'react'
+import { styled } from 'styled-components'
+import { usePositionManager } from 'views/PositionManagers/hooks/usePositionManager'
+import EmptyText from '../MigrationTable/EmptyText'
+import TableStyle from '../MigrationTable/StyledTable'
+import TableHeader from '../MigrationTable/TableHeader'
+import { ColumnsDefTypes, V3Step1DesktopColumnSchema } from '../types'
+import { PositionManagerFarmRow } from './PMRow'
+
+const Container = styled.div`
+  overflow: hidden;
+  margin-bottom: 32px;
+  border-radius: 24px 24px 16px 16px;
+  background-color: ${({ theme }) => theme.colors.disabled};
+  padding: 1px 1px 3px 1px;
+`
+
+export interface ITableProps {
+  title: string
+  noStakedFarmText: string
+  account?: string
+  columnSchema: ColumnsDefTypes[]
+  farms: FarmWithStakedValue[]
+  userDataReady: boolean
+  sortColumn?: string
+  step: number
+}
+
+export const PosManagerMigrationFarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({
+  title,
+  noStakedFarmText,
+  account,
+  columnSchema,
+  userDataReady,
+  step,
+}) => {
+  const { t } = useTranslation()
+  const { chainId } = useActiveWeb3React()
+  const VAULTS_CONFIG_BY_CHAIN = usePositionManager(chainId)
+
+  const rows = useMemo(() => {
+    if (!chainId || columnSchema !== V3Step1DesktopColumnSchema) return []
+
+    const needToMigrateList: VaultConfig[] =
+      VAULTS_CONFIG_BY_CHAIN?.filter(
+        (vault) => vault.address && vault?.bCakeWrapperAddress && vault?.bCakeWrapperAddress !== vault.address,
+      ) ?? []
+
+    return needToMigrateList.map((d) => ({
+      id: d.id,
+      data: {
+        token: d.currencyA.wrapped,
+        quoteToken: d.currencyB.wrapped,
+        label: `${d.currencyA.symbol}-${d.currencyB.symbol}`,
+        manager: d.manager,
+        wrapperAddress: d.address,
+        adapterAddress: d.adapterAddress,
+        bCakeWrapperAddress: d.bCakeWrapperAddress ?? '0x',
+        earningToken: d.earningToken.wrapped,
+      },
+      onStake: noop,
+      onUnStake: noop,
+    }))
+  }, [VAULTS_CONFIG_BY_CHAIN, chainId, columnSchema])
+
+  return (
+    <Container>
+      <TableHeader title={title} />
+      <TableStyle>
+        {!userDataReady && (
+          <Flex padding="50px 10px" justifyContent="center">
+            <Spinner />
+          </Flex>
+        )}
+        {!account && <EmptyText text={t('Please connect wallet to check your farms status.')} />}
+        {account && userDataReady && rows.length === 0 && <EmptyText text={noStakedFarmText} />}
+        {account &&
+          userDataReady &&
+          rows.map((d) => <PositionManagerFarmRow step={step} {...d} key={`table-row-${d.id}`} />)}
+      </TableStyle>
+    </Container>
+  )
+}
